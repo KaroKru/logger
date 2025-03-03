@@ -5,17 +5,17 @@ Calculator::Calculator(float firstValue, float secondValue) : m_firstValue(first
 
 }
 
-float Calculator::addNumbers()
+const float Calculator::addNumbers()
 {
     return m_firstValue + m_secondValue;
 }
 
-float Calculator::subtractionNumbers()
+const float Calculator::subtractionNumbers()
 {
     return m_firstValue - m_secondValue;
 }
 
-float Calculator::dividerNumbers()
+const float Calculator::dividerNumbers()
 {
     if (m_secondValue == 0)
     {
@@ -25,7 +25,7 @@ float Calculator::dividerNumbers()
     return m_firstValue / m_secondValue;
 }
 
-float Calculator::multiplicationNumbers()
+const float Calculator::multiplicationNumbers()
 {
     return m_firstValue * m_secondValue;
 }

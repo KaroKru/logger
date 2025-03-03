@@ -1,11 +1,19 @@
-FROM python:3.13.1
-RUN apt-get update
-RUN apt-get install -y g++
-RUN apt-get install -y make
-RUN apt-get install -y cmake
+FROM ubuntu:latest
 
-WORKDIR /app/code 
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    cmake \
+    make \
+    g++ \
+    git \
+    clang-format \
+    lcov 
 
 COPY . .
 
-CMD ["python", "file.py"]
+RUN mkdir build && cd build \
+    && cmake -G "Unix Makefiles" .. \
+    && make
+
+CMD ["./build/calc"]

@@ -4,19 +4,15 @@
 class Calculator
 {
 public:
-    Calculator() = delete;
-
     Calculator(float firstValue, float secondValue);
-
-    ~Calculator(){};
     
-    float addNumbers();
+    const float addNumbers();
 
-    float subtractionNumbers();
+    const float subtractionNumbers();
 
-    float dividerNumbers();
+    const float dividerNumbers();
 
-    float multiplicationNumbers();
+    const float multiplicationNumbers();
 
 private:
     float m_firstValue = 0.0;

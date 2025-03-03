@@ -1,20 +1,20 @@
-add_library(logger STATIC)
+add_library(calculator STATIC)
 
-target_sources(logger PRIVATE
+target_sources(calculator PRIVATE
     Calculator.cpp
 )
 
-target_include_directories(logger PUBLIC
+target_include_directories(calculator PUBLIC
     "${CMAKE_SOURCE_DIR}"
 )
 
-add_executable(run 
+add_executable(calc 
     main.cpp
 )
 
-target_link_libraries(run PRIVATE logger)
+target_link_libraries(calc PRIVATE calculator)
 
 if(ENABLE_CODE_COVERAGE)
-    target_compile_options(logger PRIVATE --coverage)
-    target_link_libraries(logger PRIVATE --coverage)
+    target_compile_options(calculator PRIVATE --coverage)
+    target_link_libraries(calculator PRIVATE --coverage)
 endif()

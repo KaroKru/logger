@@ -11,7 +11,7 @@ target_include_directories(loggerTest PUBLIC
 )
 
 target_link_libraries(loggerTest PRIVATE
-    logger
+    calculator
     gtest_main
     gmock_main
 )
