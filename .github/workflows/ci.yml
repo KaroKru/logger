@@ -17,7 +17,7 @@ jobs:
     - name: added dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y gcc g++ make lcov genhtml libncurses5-dev cmake
+        sudo apt-get install -y gcc g++ make lcov libncurses5-dev cmake
 
     - name: create build
       run: mkdir -p build
