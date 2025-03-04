@@ -1,14 +1,14 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
+RUN apk add --no-cache \
     cmake \
     make \
     g++ \
     git \
-    clang-format \
-    lcov 
+    llvm \
+    lcov
 
 COPY . .
 
