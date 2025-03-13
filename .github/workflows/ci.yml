@@ -14,28 +14,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: added dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y gcc g++ make lcov libncurses5-dev cmake
-
-    - name: create build
-      run: mkdir -p build
+    - name: build
+      run: docker build -t my-app .
     
-    - name: run command
-      run: |
-        cd build
-        cmake -G "Unix Makefiles" ..
-        make 
-
-    - name: run test
-      run: |
-        cd build
-        ctest -V
-
-    - name: coverage
-      run: |
-        cd build
-        lcov --directory . --capture --output-file coverage.info --ignore-errors mismatch
-        lcov --remove coverage.info 'test/*' '/usr/*' 'test-library*' --output-file coverage.info
-        lcov --list coverage.info 
+    - name: run
+      run: docker run --rm my-app
+  
