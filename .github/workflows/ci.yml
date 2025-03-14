@@ -14,9 +14,41 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: create build
+      run: mkdir -p build
+
+    - name: run command
+      run: |
+        cd build
+        cmake -G "Unix Makefiles" ..
+        make 
+
+    - name: run test
+      run: |
+        cd build
+        ctest -V
+
+    - name: coverage
+      run: |
+        cd build
+        lcov --directory . --capture --output-file coverage.info
+        lcov --remove coverage.info 'test/*' '/usr/*' 'test-library*' --output-file coverage.info
+        lcov --list coverage.info 
+
+  docker-build:
+    needs: build 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: log
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
     - name: build
-      run: docker build -t my-app .
+      run: |
+        IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/my-app
+        docker build -t $IMAGE_NAME .
+        docker push $IMAGE_NAME
     
-    - name: run
-      run: docker run --rm my-app
-  
