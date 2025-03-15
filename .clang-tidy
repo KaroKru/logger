@@ -1,0 +1,10 @@
+---
+Checks: >
+  *,
+  bugprone-*,
+  readability-*,
+  modernize-*,
+  misc-*,
+  cppcoreguidelines-*,
+
+HeaderFilterRegex: '^(?!.*(_deps|external)).*'
