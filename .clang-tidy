@@ -1,6 +1,6 @@
 ---
-Checks: >
-  *,
+Checks:
+  -*,
   bugprone-*,
   readability-*,
   modernize-*,
