@@ -16,6 +16,9 @@ jobs:
 
     - name: create build
       run: mkdir -p build
+    
+    - name: install lcov
+      run: sudo apt update && sudo apt install -y lcov
 
     - name: run command
       run: |
@@ -31,9 +34,10 @@ jobs:
     - name: coverage
       run: |
         cd build
-        lcov --directory . --capture --output-file coverage.info
-        lcov --remove coverage.info 'test/*' '/usr/*' 'test-library*' --output-file coverage.info
-        lcov --list coverage.info 
+        lcov --directory . --capture --ignore-errors mismatch --output-file coverage.info
+        lcov --list coverage.info
+        lcov --remove coverage.info '*/test/*' '*/_deps/*' '/usr/*' --ignore-errors unused --output-file coverage_filtered.info
+        lcov --list coverage_filtered.info
 
   docker-build:
     needs: build 
