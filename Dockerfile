@@ -1,11 +1,12 @@
-FROM python:3.13.1
-RUN apt-get update
-RUN apt-get install -y g++
-RUN apt-get install -y make
-RUN apt-get install -y cmake
+FROM alpine:3.21.3
 
-WORKDIR /app/code 
+WORKDIR /app
 
-COPY . .
-
-CMD ["python", "file.py"]
+RUN apk add --no-cache \
+    cmake=3.31.1-r0 \
+    make=4.4.1-r2 \
+    g++=14.2.0-r4 \
+    git=2.47.2-r0 \
+    llvm19=19.1.4-r0 \
+    lcov=2.0-r2 \
+    gzip=1.13-r0
