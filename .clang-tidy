@@ -6,5 +6,15 @@ Checks:
   modernize-*,
   misc-*,
   cppcoreguidelines-*,
+  readability-identifier-naming,
+  clang-analyzer-*,
+
+CheckOptions:
+  - key: readability-identifier-naming.VariableCase
+    value: camelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: camelCase
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
 
 HeaderFilterRegex: '^(?!.*(_deps|external)).*'
