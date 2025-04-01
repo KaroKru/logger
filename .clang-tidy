@@ -9,6 +9,8 @@ Checks:
   readability-identifier-naming,
   clang-analyzer-*,
 
+WarningsAsErrors: '*'
+
 CheckOptions:
   - key: readability-identifier-naming.VariableCase
     value: camelCase
