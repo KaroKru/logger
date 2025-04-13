@@ -1,19 +1,14 @@
 #include <iostream>
-#include "Calculator.hpp"
+#include "LogParser.hpp"
 
 int main()
 {
-    std::cout << "provide two values " << std::endl;
-    float first;
-    float second;
-    std::cin >> first;
-    std::cin >> second;
-
-    Calculator calc{first, second};
-    std::cout << "add " << calc.addNumbers() << std::endl;
-    std::cout << "minus " << calc.subtractionNumbers() << std::endl;
-    std::cout << "multiple " << calc.multiplicationNumbers() << std::endl;
-    std::cout << "divider " << calc.dividerNumbers() << std::endl;
+    std::cout << "check message" << std::endl;
+    
+    /* LogParser logParser{};
+    std::cout << "date " << logParser.getDate() << std::endl;
+    std::cout << "mesaage " << logParser.getMessage() << std::endl;
+    std::cout << "value " << logParser.getValue() << std::endl; */
 
     return 0;
 }
