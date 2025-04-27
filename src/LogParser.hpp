@@ -1,21 +1,14 @@
 #ifndef LOGPARSER_HPP
 #define LOGPARSER_HPP
 
-#include <iostream>
-#include <string>
+#include "LogEntry.hpp"
+#include <stdexcept>
+#include <sstream>
 
 class LogParser
 {
-    LogParser(std::string message);
-
-    ~LogParser();
-
-    std::string parseLine();
-
-    private: 
-
-    std::string m_message = "";
+public:
+    static LogEntry parseLine(const std::string& readLine);
 };
 
-#endif
-
+#endif //LOGPARSER_HPP

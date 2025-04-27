@@ -1,0 +1,12 @@
+Mar 14 08:23:11 server-name kernel: [0.345678] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+Feb 02 17:45:52 server-name sshd[1234]: Failed password for invalid user test from 10.0.0.5 port 42218 ssh2
+Jan 25 12:05:33 server-name systemd[1]: Started OpenSSH server daemon.
+Apr 03 22:15:10 server-name systemd[1]: Restarted apache2 - web server.
+May 19 04:44:21 server-name cron[2345]: (root) CMD (/usr/local/bin/backup.sh)
+Jul 07 15:17:56 server-name kernel: [60.789012] CPU1: Package temperature above threshold, cpu clock throttled (total events = 2)
+Jun 11 19:38:14 server-name sshd[4321]: Accepted password for admin from 172.16.0.10 port 60234 ssh2
+Aug 29 06:22:48 server-name sudo: admin : TTY=pts/1 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/systemctl restart apache2
+Oct 03 13:00:01 server-name systemd[1]: Stopping apache2 - web server...
+Oct 03 13:00:02 server-name systemd[1]: Starting apache2 - web server...
+Nov 15 21:55:09 server-name kernel: [123.456789] eth0: Link is Down
+Dec 01 05:33:45 server-name kernel: [200.654321] eth0: Link is Up - 100Mbps/Full - flow control rx/tx

@@ -6,22 +6,25 @@
 
 class LogEntry
 {
-    LogEntry(std::string date, std::string message, int value);
-    
-    ~LogEntry();
+    public:
+    LogEntry(const std::string& date, const std::string& serverName, const std::string& name, const std::string& message);
 
-    int getValue();
+    const std::string& getMessage() const;
 
-    std::string getMessage();
+    const std::string& getDate() const;
 
-    std::string getDate();
+    const std::string& getServerName() const;
+
+    const std::string& getName() const;
 
     private:
     std::string m_date = "";
 
     std::string m_message = "";
 
-    int m_value = 0;
+    std::string m_serverName = "";
+
+    std::string m_name = "";
 };
 
-#endif 
+#endif //LOGENTRY_HPP

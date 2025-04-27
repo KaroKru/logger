@@ -1,21 +1,27 @@
 #include "LogEntry.hpp"
 
-LogEntry::LogEntry(std::string date, std::string message, int value) : m_date(date), m_message(message), m_value(value)
+LogEntry::LogEntry(const std::string& date, const std::string& serverName, const std::string& name, const std::string& message)
+    : m_date(date), m_serverName(serverName), m_name(name), m_message(message)
 {
 
 }
 
-int LogEntry::getValue()
-{
-    return m_value;
-}
-
-std::string LogEntry::getMessage()
+const std::string& LogEntry::getMessage() const
 {
     return m_message;
 }
 
-std::string LogEntry::getDate()
+const std::string& LogEntry::getDate() const
 {
     return m_date;
+}
+
+const std::string& LogEntry::getServerName() const
+{
+    return m_serverName;
+}
+
+const std::string& LogEntry::getName() const
+{
+    return m_name;
 }

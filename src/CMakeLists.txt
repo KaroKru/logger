@@ -3,6 +3,7 @@ add_library(calculator STATIC)
 target_sources(calculator PRIVATE
     LogParser.cpp
     LogEntry.cpp
+    FileReader.cpp
 )
 
 target_include_directories(calculator PUBLIC
