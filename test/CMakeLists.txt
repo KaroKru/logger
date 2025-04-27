@@ -2,7 +2,7 @@ include(GoogleTest)
 include(CTest)
 
 add_executable(loggerTest
-    #AddTest.cpp
+    AddTest.cpp
 )
 
 target_include_directories(loggerTest PUBLIC
