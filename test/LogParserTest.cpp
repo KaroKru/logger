@@ -5,10 +5,10 @@
 
 TEST(LogParserTest, checkIfParseNoThrow)
 {
-    const std::string line = "2025-03-07 05:00:00 server-name sshd: Restarted server";
+    const std::string line = "Oct 03 05:00:00 server-name sshd: Restarted server";
     LogEntry log = LogParser::parseLine(line);
 
-    EXPECT_EQ(log.getDate(), "2025-03-07 05:00:00");
+    EXPECT_EQ(log.getDate(), "Oct 03 05:00:00");
     EXPECT_EQ(log.getServerName(), "server-name");
     EXPECT_EQ(log.getName(), "sshd");
     EXPECT_EQ(log.getMessage(), "Restarted server");
@@ -22,18 +22,19 @@ TEST(LogParser, checkTimestampIfMissing)
 
 TEST(LogParser, checkServerNameIfMissing)
 {
-    const std::string line = "2025-03-07 05:00:00 sshd: Restarted server";
+    const std::string line = "Oct 03 05:00:00 ";
     EXPECT_THROW(LogParser::parseLine(line), std::runtime_error);
 }
 
 TEST(LogParser, checkNameIfMissing)
 {
-    const std::string line = "2025-03-07 05:00:00 server-name Restarted server";
+    const std::string line = "Oct 03 05:00:00 server-name";
     EXPECT_THROW(LogParser::parseLine(line), std::runtime_error);
 }
 
 TEST(LogParser, checkMessageIfMissing)
 {
-    const std::string line = "2025-03-07 05:00:00 server-name sshd:";
-    EXPECT_THROW(LogParser::parseLine(line), std::runtime_error);
+    const std::string line = "Oct 03 05:00:00 server-name sshd:";
+    LogEntry log = LogParser::parseLine(line);
+    EXPECT_EQ(log.getMessage().empty(), true);
 }

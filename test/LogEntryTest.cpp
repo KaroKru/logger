@@ -4,7 +4,7 @@
 
 TEST(LogEntry, checkEntry)
 {
-    std::string timestamp = "2025-03-03 03:00:00";
+    std::string timestamp = "Oct 03 03:00:00";
     std::string serverName = "kernel1";
     std::string name = "sshd";
     std::string message = "Connection established";
