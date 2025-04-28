@@ -18,13 +18,13 @@ class LogEntry
     const std::string& getName() const;
 
     private:
-    std::string m_date = "";
+    std::string m_date;
 
-    std::string m_message = "";
+    std::string m_message;
 
-    std::string m_serverName = "";
+    std::string m_serverName;
 
-    std::string m_name = "";
+    std::string m_name;
 };
 
 #endif //LOGENTRY_HPP

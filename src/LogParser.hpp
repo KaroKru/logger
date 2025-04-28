@@ -2,8 +2,7 @@
 #define LOGPARSER_HPP
 
 #include "LogEntry.hpp"
-#include <stdexcept>
-#include <sstream>
+#include <string>
 
 class LogParser
 {

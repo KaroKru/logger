@@ -1,4 +1,8 @@
 #include "FileReader.hpp"
+#include <fstream>
+#include <vector>
+#include <string>
+#include <stdexcept>
 
 FileReader::FileReader(const std::string path) 
     : m_path(path)
@@ -6,10 +10,10 @@ FileReader::FileReader(const std::string path)
 
 }
 
-const std::vector<std::string> FileReader::readFile()
+std::vector<std::string> FileReader::readFile() const
 {
     std::vector<std::string> readFile;
-    std::string readedLine = "";
+    std::string readedLine;
     std::ifstream openFile(m_path);
 
     if (!openFile.is_open()) 

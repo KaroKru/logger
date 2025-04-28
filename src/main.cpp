@@ -1,24 +1,29 @@
 #include <iostream>
-#include "LogParser.hpp"
 #include "FileReader.hpp"
 #include "LogEntry.hpp"
+#include "LogParser.hpp"
+#include <string>
+#include <vector>
 
+namespace
+{
 void open()
 {
-    std::string path = "../src/log.txt";
-    FileReader openFile(path);
+    const std::string path = "../src/log.txt";
+    const FileReader openFile(path);
     
-    std::vector<std::string> line = openFile.readFile();
+    const std::vector<std::string> line = openFile.readFile();
 
-    for (const auto i : line)
+    for (const auto iValue : line)
     {
-        LogEntry entryData = LogParser::parseLine(i);
+        const LogEntry entryData = LogParser::parseLine(iValue);
 
         std::cout << "Timestamp " << entryData.getDate() << std::endl;
         std::cout << "Server name " << entryData.getServerName() << std::endl;
         std::cout << "Name " << entryData.getName() << std::endl;
         std::cout << "Messafe " << entryData.getMessage() << std::endl;
     }
+}
 }
 
 int main()

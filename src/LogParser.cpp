@@ -1,25 +1,25 @@
 #include "LogParser.hpp"
-
+#include <stdexcept>
+#include "LogEntry.hpp"
+#include <sstream>
+#include <string>
 
 LogEntry LogParser::parseLine(const std::string& readLine)
 {
     std::istringstream line(readLine);
-    std::string month = "";
-    std::string day = "";
-    std::string time = "";
-    std::string serverName = "";
-    std::string name = "";
-    std::string message = "";
-    std::string timestamp = "";
+    std::string month;
+    std::string day;
+    std::string time;
+    std::string serverName;
+    std::string name;
+    std::string message;
+    std::string timestamp;
 
     if (!(line >> month >> day >> time)) 
     {
         throw std::runtime_error("Invalid timestamp");
     }
-    else
-    {
-        timestamp = month + " " + day + " " + time;
-    }
+    timestamp = month + " " + day + " " + time;
 
     if (!(line >> serverName)) 
     {
@@ -43,5 +43,5 @@ LogEntry LogParser::parseLine(const std::string& readLine)
         message.erase(0, 1);
     }
 
-    return LogEntry(timestamp, serverName, name, message);
+    return {timestamp, serverName, name, message};
 }
