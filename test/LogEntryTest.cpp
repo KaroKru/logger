@@ -9,7 +9,7 @@ TEST(LogEntry, checkEntry)
     std::string name = "sshd";
     std::string message = "Connection established";
 
-    LogEntry log(timestamp. serverName, name, message);
+    LogEntry log(timestamp, serverName, name, message);
     EXPECT_EQ(log.getDate(), timestamp);
     EXPECT_EQ(log.getServerName(), serverName);
     EXPECT_EQ(log.getName(), name);
