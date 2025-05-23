@@ -1,24 +1,21 @@
 include(GoogleTest)
 include(CTest)
 
-add_executable(loggerTest
-    AddTest.cpp
+add_executable(LogEntryTest
+    LogEntryTest.cpp
 )
+target_link_libraries(LogEntryTest PRIVATE logentry gtest_main)
+add_test(NAME LogEntryTest COMMAND LogEntryTest)
 
-target_include_directories(loggerTest PUBLIC
-    "${gtest_SOURCE_DIR}/src"
-    "${CMAKE_SOURCE_DIR}/src"
+add_executable(LogParserTest
+    LogParserTest.cpp
 )
-
-target_link_libraries(loggerTest PRIVATE
-    calculator
-    gtest_main
-    gmock_main
-)
-
-gtest_discover_tests(loggerTest XML_OUTPUT_DIR ${CMAKE_BINARY_DIR}/test/loggerTest)
+target_link_libraries(LogParserTest PRIVATE logparser logentry gtest_main)
+add_test(NAME LogParserTest COMMAND LogParserTest)
 
 if(ENABLE_CODE_COVERAGE)
-    target_compile_options(loggerTest PRIVATE --coverage)
-    target_link_libraries(loggerTest PRIVATE --coverage)
+    target_compile_options(LogEntryTest PRIVATE --coverage)
+    target_compile_options(LogParserTest PRIVATE --coverage)
+    target_link_libraries(LogEntryTest PRIVATE --coverage)
+    target_link_libraries(LogParserTest PRIVATE --coverage)
 endif()
