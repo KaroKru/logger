@@ -6,7 +6,9 @@
 TEST(LogParserTest, checkIfParseNoThrow)
 {
     const std::string line = "Oct 03 05:00:00 server-name sshd: Restarted server";
-    LogEntry log = LogParser::parseLine(line);
+    std::unique_ptr<LogEntryInt> log;
+    
+    EXPECT_NO_THROW({log = LogParser::parseLine(line);});
 
     EXPECT_EQ(log.getDate(), "Oct 03 05:00:00");
     EXPECT_EQ(log.getServerName(), "server-name");

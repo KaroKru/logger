@@ -16,12 +16,12 @@ void open()
 
     for (const auto iValue : line)
     {
-        const LogEntry entryData = LogParser::parseLine(iValue);
+        std::unique_ptr<LogEntryInt> entryData = LogParser::parseLine(iValue);
 
-        std::cout << "Timestamp " << entryData.getDate() << std::endl;
-        std::cout << "Server name " << entryData.getServerName() << std::endl;
-        std::cout << "Name " << entryData.getName() << std::endl;
-        std::cout << "Messafe " << entryData.getMessage() << std::endl;
+        std::cout << "Timestamp " << entryData->getDate() << std::endl;
+        std::cout << "Server name " << entryData->getServerName() << std::endl;
+        std::cout << "Name " << entryData->getName() << std::endl;
+        std::cout << "Messafe " << entryData->getMessage() << std::endl;
     }
 }
 }

@@ -3,19 +3,20 @@
 
 #include <iostream>
 #include <string>
+#include "LogEntryInt.hpp"
 
-class LogEntry
+class LogEntry : public LogEntryInt
 {
     public:
     LogEntry(const std::string& date, const std::string& serverName, const std::string& name, const std::string& message);
 
-    const std::string& getMessage() const;
+    const std::string& getMessage() const override;
 
-    const std::string& getDate() const;
+    const std::string& getDate() const override;
 
-    const std::string& getServerName() const;
+    const std::string& getServerName() const override;
 
-    const std::string& getName() const;
+    const std::string& getName() const override;
 
     private:
     std::string m_date;
