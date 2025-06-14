@@ -1,5 +1,6 @@
 #include "LogEntry.hpp"
 #include <string>
+#include <utility>
 
 LogEntry::LogEntry(std::string date, std::string serverName, std::string name, std::string message)
     : m_date(std::move(date)), m_serverName(std::move(serverName)), m_name(std::move(name)), m_message(std::move(message)) 
