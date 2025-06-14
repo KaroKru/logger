@@ -4,12 +4,12 @@
 #include <string>
 #include <memory>
 
-class LogEntryInt;
+class ILogEntry;
 
 class LogParser
 {
 public:
-    static std::unique_ptr<LogEntryInt> parseLine(const std::string& readLine);
+    static std::unique_ptr<ILogEntry> parseLine(const std::string& readLine);
 };
 
 #endif //LOGPARSER_HPP

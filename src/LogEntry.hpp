@@ -3,12 +3,12 @@
 
 #include <iostream>
 #include <string>
-#include "LogEntryInt.hpp"
+#include "ILogEntry.hpp"
 
-class LogEntry : public LogEntryInt
+class LogEntry : public ILogEntry
 {
     public:
-    LogEntry(const std::string& date, const std::string& serverName, const std::string& name, const std::string& message);
+    LogEntry(std::string date, std::string serverName, std::string name, std::string message);
 
     const std::string& getMessage() const override;
 

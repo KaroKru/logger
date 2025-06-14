@@ -1,13 +1,13 @@
-#ifndef LOGENTRYINT_HPP
-#define LOGENTRYINT_HPP
+#ifndef ILOGENTRY_HPP
+#define ILOGENTRY_HPP
 
 #include <iostream>
 #include <string>
 
-class LogEntryInt
+class ILogEntry
 {
 public:
-    virtual ~LogEntryInt() = default;
+    virtual ~ILogEntry() = default;
 
     virtual const std::string& getMessage() const = 0;
 
@@ -18,4 +18,4 @@ public:
     virtual const std::string& getName() const = 0;
 };
 
-#endif // LOGENTRYINT_HP
+#endif // ILOGENTRY_HPP

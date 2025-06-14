@@ -1,6 +1,6 @@
 #include <iostream>
 #include "FileReader.hpp"
-#include "LogEntryInt.hpp"
+#include "ILogEntry.hpp"
 #include "LogParser.hpp"
 #include <string>
 #include <vector>
@@ -17,7 +17,7 @@ void open()
 
     for (const auto iValue : line)
     {
-        std::unique_ptr<LogEntryInt> entryData = LogParser::parseLine(iValue);
+        std::unique_ptr<ILogEntry> entryData = LogParser::parseLine(iValue);
 
         std::cout << "Timestamp " << entryData->getDate() << std::endl;
         std::cout << "Server name " << entryData->getServerName() << std::endl;

@@ -5,7 +5,7 @@
 #include <string>
 #include <memory>
 
-std::unique_ptr<LogEntryInt> LogParser::parseLine(const std::string& readLine)
+std::unique_ptr<ILogEntry> LogParser::parseLine(const std::string& readLine)
 {
     std::istringstream line(readLine);
     std::string month;
