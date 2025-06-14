@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "LogParser.hpp"
-#include "LogEntry.hpp"
+#include "LogEntryInt.hpp"
 #include <string>
 
 TEST(LogParserTest, checkIfParseNoThrow)
@@ -9,11 +9,12 @@ TEST(LogParserTest, checkIfParseNoThrow)
     std::unique_ptr<LogEntryInt> log;
     
     EXPECT_NO_THROW({log = LogParser::parseLine(line);});
+    EXPECT_NE(log, nullptr);
 
-    EXPECT_EQ(log.getDate(), "Oct 03 05:00:00");
-    EXPECT_EQ(log.getServerName(), "server-name");
-    EXPECT_EQ(log.getName(), "sshd");
-    EXPECT_EQ(log.getMessage(), "Restarted server");
+    EXPECT_EQ(log->getDate(), "Oct 03 05:00:00");
+    EXPECT_EQ(log->getServerName(), "server-name");
+    EXPECT_EQ(log->getName(), "sshd");
+    EXPECT_EQ(log->getMessage(), "Restarted server");
 }
 
 TEST(LogParser, checkTimestampIfMissing)
@@ -37,6 +38,8 @@ TEST(LogParser, checkNameIfMissing)
 TEST(LogParser, checkMessageIfMissing)
 {
     const std::string line = "Oct 03 05:00:00 server-name sshd:";
-    LogEntry log = LogParser::parseLine(line);
-    EXPECT_EQ(log.getMessage().empty(), true);
+    std::unique_ptr<LogEntryInt> log = LogParser::parseLine(line);
+
+    EXPECT_NE(log, nullptr);
+    EXPECT_EQ(log->getMessage().empty(), true);
 }

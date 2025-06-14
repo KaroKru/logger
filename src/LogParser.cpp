@@ -3,6 +3,7 @@
 #include "LogEntry.hpp"
 #include <sstream>
 #include <string>
+#include <memory>
 
 std::unique_ptr<LogEntryInt> LogParser::parseLine(const std::string& readLine)
 {

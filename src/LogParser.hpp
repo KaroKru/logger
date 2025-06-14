@@ -1,9 +1,10 @@
 #ifndef LOGPARSER_HPP
 #define LOGPARSER_HPP
 
-#include "LogEntryInt.hpp"
 #include <string>
 #include <memory>
+
+class LogEntryInt;
 
 class LogParser
 {

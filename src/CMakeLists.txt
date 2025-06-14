@@ -14,6 +14,8 @@ target_include_directories(logparser PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+target_link_libraries(logparser PUBLIC logentry)
+
 add_library(filereader STATIC
     FileReader.cpp
 )
@@ -26,7 +28,7 @@ add_executable(log
     main.cpp
 )
 
-target_link_libraries(log PRIVATE logentry logparser filereader)
+target_link_libraries(log PRIVATE logparser filereader)
 
 if(ENABLE_CODE_COVERAGE)
     target_compile_options(logentry PRIVATE --coverage)

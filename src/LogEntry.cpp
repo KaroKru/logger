@@ -2,9 +2,8 @@
 #include <string>
 #include <utility>
 
-LogEntry::LogEntry(const std::string& date, const std::string& serverName,
-    const std::string& name, const std::string& message)
-: m_date(date), m_serverName(serverName), m_name(name), m_message(message) 
+LogEntry::LogEntry(const std::string& date, const std::string& serverName, const std::string& name, const std::string& message)
+    : m_date(date), m_serverName(serverName), m_name(name), m_message(message) 
 {
     
 }

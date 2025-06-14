@@ -2,7 +2,7 @@
 #include "LogEntry.hpp"
 #include <string>
 
-TEST(LogEntry, checkEntry)
+TEST(LogEntryTest, checkEntry)
 {
     std::string timestamp = "Oct 03 03:00:00";
     std::string serverName = "kernel1";

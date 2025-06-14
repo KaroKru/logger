@@ -1,9 +1,10 @@
 #include <iostream>
 #include "FileReader.hpp"
-#include "LogEntry.hpp"
+#include "LogEntryInt.hpp"
 #include "LogParser.hpp"
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace
 {
