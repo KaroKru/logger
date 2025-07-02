@@ -2,13 +2,10 @@
 #include <string>
 #include <utility>
 
-LogEntry::LogEntry(const std::string& date, const std::string& serverName, const std::string& name, const std::string& message)
-    : m_date(std::move(date)), 
-      m_serverName(std::move(serverName)), 
-      m_name(std::move(name)), 
-      m_message(std::move(message))
+LogEntry::LogEntry(std::string date, std::string serverName, std::string name, std::string message)
+    : m_date(std::move(date)), m_serverName(std::move(serverName)), m_name(std::move(name)), m_message(std::move(message)) 
 {
-
+    
 }
 
 const std::string& LogEntry::getMessage() const

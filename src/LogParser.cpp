@@ -3,8 +3,9 @@
 #include "LogEntry.hpp"
 #include <sstream>
 #include <string>
+#include <memory>
 
-LogEntry LogParser::parseLine(const std::string& readLine)
+std::unique_ptr<ILogEntry> LogParser::parseLine(const std::string& readLine)
 {
     std::istringstream line(readLine);
     std::string month;
@@ -43,5 +44,5 @@ LogEntry LogParser::parseLine(const std::string& readLine)
         message.erase(0, 1);
     }
 
-    return {timestamp, serverName, name, message};
+    return std::make_unique<LogEntry>(timestamp, serverName, name, message);
 }
