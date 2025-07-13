@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "Dispatcher.hpp"
 
 namespace
 {
@@ -12,6 +13,7 @@ void open()
 {
     const std::string path = "../src/log.txt";
     const FileReader openFile(path);
+    Dispatcher dispatcher;
     
     const std::vector<std::string> line = openFile.readFile();
 
@@ -19,10 +21,8 @@ void open()
     {
         std::unique_ptr<ILogEntry> entryData = LogParser::parseLine(iValue);
 
-        std::cout << "Timestamp " << entryData->getDate() << std::endl;
-        std::cout << "Server name " << entryData->getServerName() << std::endl;
-        std::cout << "Name " << entryData->getName() << std::endl;
-        std::cout << "Messafe " << entryData->getMessage() << std::endl;
+        dispatcher.register(entryData);
+        dispatcher.dispatch(entryData);
     }
 }
 }

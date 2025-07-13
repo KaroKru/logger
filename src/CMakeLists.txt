@@ -24,6 +24,12 @@ target_include_directories(filereader PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+add_library(logparser PUBLIC dispatcher)
+
+target_include_directories(dispatcher PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 add_executable(log 
     main.cpp
 )
@@ -35,10 +41,12 @@ if(ENABLE_CODE_COVERAGE)
     target_compile_options(logparser PRIVATE --coverage)
     target_compile_options(filereader PRIVATE --coverage)
     target_compile_options(log PRIVATE --coverage)
+    target_compile_options(dispatcher PRIVATE --coverage)
 
     target_link_libraries(log PRIVATE --coverage)
 
     target_link_libraries(logparser PRIVATE --coverage)
     target_link_libraries(logentry PRIVATE --coverage)
+    target_link_libraries(dispatcher PRIVATE --coverage)
     target_link_libraries(filereader PRIVATE --coverage)
 endif()
