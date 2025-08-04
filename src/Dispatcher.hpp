@@ -18,7 +18,7 @@ class Dispatcher
 public:
     void registerInformation(const ILogEntry& log);
 
-    void dispatchInformation(const ILogEntry& log);
+    static void dispatchInformation(const ILogEntry& log);
 
 private:
     std::vector<InformationData> m_values;

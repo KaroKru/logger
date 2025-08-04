@@ -19,7 +19,7 @@ void open()
 
     for (const auto iValue : line)
     {
-        std::unique_ptr<ILogEntry> entryData = LogParser::parseLine(iValue);
+        const std::unique_ptr<ILogEntry> entryData = LogParser::parseLine(iValue);
 
         dispatcher.registerInformation(*entryData);
         dispatcher.dispatchInformation(*entryData);

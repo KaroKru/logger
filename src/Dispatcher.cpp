@@ -3,7 +3,7 @@
 
 void Dispatcher::registerInformation(const ILogEntry& log)
 {
-    InformationData data{log.getDate(), log.getServerName(), log.getName(), log.getMessage()};
+    const InformationData data{log.getDate(), log.getServerName(), log.getName(), log.getMessage()};
     m_values.push_back(data);
 }
 
