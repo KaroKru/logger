@@ -24,7 +24,9 @@ target_include_directories(filereader PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_library(logparser PUBLIC dispatcher)
+add_library(dispatcher STATIC
+    Dispatcher.cpp
+)
 
 target_include_directories(dispatcher PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -34,7 +36,7 @@ add_executable(log
     main.cpp
 )
 
-target_link_libraries(log PRIVATE logparser filereader)
+target_link_libraries(log PRIVATE logparser dispatcher filereader)
 
 if(ENABLE_CODE_COVERAGE)
     target_compile_options(logentry PRIVATE --coverage)

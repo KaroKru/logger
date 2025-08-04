@@ -3,6 +3,7 @@
 
 #include "ILogEntry.hpp"
 #include <string>
+#include <vector>
 
 struct InformationData
 {
@@ -20,7 +21,7 @@ public:
     void dispatchInformation(const ILogEntry& log);
 
 private:
-    std::vector<InformationData> m_values = nullptr;
+    std::vector<InformationData> m_values;
 };
 
 #endif // Dispatcher

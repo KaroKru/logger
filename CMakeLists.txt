@@ -13,7 +13,7 @@ include(FetchContent)
 FetchContent_Declare(
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.11.0
+  GIT_TAG        release-1.12.0
 )
 FetchContent_MakeAvailable(googletest)
 
@@ -49,9 +49,10 @@ if(ENABLE_CODE_COVERAGE)
 
     if(LCOV_EXEC AND GENHTML_EXEC)
         add_custom_target(coverage
-            COMMAND ${LCOV_EXEC} --capture --directory ${CMAKE_BINARY_DIR} --output-file coverage.info
-            COMMAND ${LCOV_EXEC} --remove coverage.info '/usr/*' '${CMAKE_BINARY_DIR}/*' --output-file coverage.info
-            COMMAND ${GENHTML_EXEC} -o coverage coverage.info
+            COMMAND ${LCOV_EXEC} --capture --directory ${CMAKE_BINARY_DIR} --base-directory ${CMAKE_SOURCE_DIR} --output-file coverage.info
+            COMMAND ${LCOV_EXEC} --remove coverage.info '/usr/*' --output-file coverage.info.cleaned
+            COMMAND ${GENHTML_EXEC} coverage.info.cleaned --output-directory coverage_report --prefix ${CMAKE_SOURCE_DIR}
+            WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
             COMMENT "Generating coverage report"
             VERBATIM
         )

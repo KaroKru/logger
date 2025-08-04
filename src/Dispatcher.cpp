@@ -1,13 +1,13 @@
 #include "Dispatcher.hpp"
 #include <iostream>
 
-void Dispatcher::register(const ILogEntry& log)
+void Dispatcher::registerInformation(const ILogEntry& log)
 {
-    InfomrationData data{log.getDate(), log.getServerName(), log.getName(), log.getMessage()};
-    m_values.push_back();
+    InformationData data{log.getDate(), log.getServerName(), log.getName(), log.getMessage()};
+    m_values.push_back(data);
 }
 
-void Dispatcher::dispatch(const ILogEntry& log)
+void Dispatcher::dispatchInformation(const ILogEntry& log)
 {
     std::cout << log.getDate() << " " << log.getServerName() << " " << log.getName() << " " << log.getMessage() << std::endl;
 }

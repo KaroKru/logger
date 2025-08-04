@@ -21,8 +21,8 @@ void open()
     {
         std::unique_ptr<ILogEntry> entryData = LogParser::parseLine(iValue);
 
-        dispatcher.register(entryData);
-        dispatcher.dispatch(entryData);
+        dispatcher.registerInformation(*entryData);
+        dispatcher.dispatchInformation(*entryData);
     }
 }
 }
