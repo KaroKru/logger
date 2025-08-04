@@ -1,4 +1,5 @@
 #include "Dispatcher.hpp"
+#include "ILogEntry.hpp"
 #include <iostream>
 
 void Dispatcher::registerInformation(const ILogEntry& log)
