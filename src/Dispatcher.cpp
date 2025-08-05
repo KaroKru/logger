@@ -12,3 +12,8 @@ void Dispatcher::dispatchInformation(const ILogEntry& log)
 {
     std::cout << log.getDate() << " " << log.getServerName() << " " << log.getName() << " " << log.getMessage() << std::endl;
 }
+
+std::size_t Dispatcher::getSize()
+{
+    return m_values.size();
+}

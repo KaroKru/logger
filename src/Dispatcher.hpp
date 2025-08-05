@@ -20,6 +20,8 @@ public:
 
     static void dispatchInformation(const ILogEntry& log);
 
+    std::size_t getSize();
+
 private:
     std::vector<InformationData> m_values;
 };
