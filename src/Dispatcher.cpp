@@ -11,13 +11,14 @@ void Dispatcher::registerInformation(const ILogEntry& log)
 
 void Dispatcher::dispatchInformation()
 {
-    for (const auto& value : m_values)
+    for (std::size_t i = m_disptachCount; i < m_values.size(); i++)
     {
-        std::cout << value.date << " " << value.serverName << " " << value.name << " " << value.message << std::endl;
+        std::cout << m_values[i].date << " " << m_values[i].serverName << " " << m_values[i].name << " " << m_values[i].message << std::endl;
     }
+    m_disptachCount = m_values.size();
 }
 
 std::size_t Dispatcher::getSize()
 {
-    return m_values.size();
+    return m_disptachCount;
 }

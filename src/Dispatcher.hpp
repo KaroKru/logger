@@ -25,6 +25,7 @@ public:
 
 private:
     std::vector<InformationData> m_values;
+    std::size_t m_disptachCount = 0;
 };
 
 #endif // Dispatcher
