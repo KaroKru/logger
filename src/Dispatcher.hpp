@@ -2,6 +2,7 @@
 #define DISPATCHER_HPP
 
 #include "ILogEntry.hpp"
+#include <cstddef>
 #include <string>
 #include <vector>
 
