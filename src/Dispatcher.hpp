@@ -19,7 +19,7 @@ class Dispatcher
 public:
     void registerInformation(const ILogEntry& log);
 
-    static void dispatchInformation(const ILogEntry& log);
+    void dispatchInformation();
 
     std::size_t getSize();
 

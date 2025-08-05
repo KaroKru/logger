@@ -9,9 +9,12 @@ void Dispatcher::registerInformation(const ILogEntry& log)
     m_values.push_back(data);
 }
 
-void Dispatcher::dispatchInformation(const ILogEntry& log)
+void Dispatcher::dispatchInformation()
 {
-    std::cout << log.getDate() << " " << log.getServerName() << " " << log.getName() << " " << log.getMessage() << std::endl;
+    for (const auto& value : m_values)
+    {
+        std::cout << value.date << " " << value.serverName << " " << value.name << " " << value.message << std::endl;
+    }
 }
 
 std::size_t Dispatcher::getSize()
