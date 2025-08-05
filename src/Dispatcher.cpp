@@ -20,5 +20,5 @@ void Dispatcher::dispatchInformation()
 
 std::size_t Dispatcher::getSize()
 {
-    return m_disptachCount;
+    return m_values.size();
 }
