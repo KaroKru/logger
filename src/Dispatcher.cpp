@@ -13,7 +13,7 @@ void Dispatcher::dispatchInformation()
 {
     while (!m_values.empty())
     {
-        dataInformation(m_values.front());
+        Dispatcher::dataInformation(m_values.front());
         m_values.pop();
     }
 }

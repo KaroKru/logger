@@ -24,7 +24,7 @@ public:
     std::size_t getSize();
 
 private:
-    void dataInformation(const InformationData& value);
+    static void dataInformation(const InformationData& value);
     std::queue<InformationData> m_values;
 };
 
