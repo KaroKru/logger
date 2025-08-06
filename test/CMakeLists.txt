@@ -13,6 +13,12 @@ add_executable(LogParserTest
 target_link_libraries(LogParserTest PRIVATE logentry logparser gtest_main)
 add_test(NAME LogParserTest COMMAND LogParserTest)
 
+add_executable(DispatcherTest
+    DispatcherTest.cpp
+)
+target_link_libraries(DispatcherTest PRIVATE logentry dispatcher gtest_main)
+add_test(NAME DispatcherTest COMMAND DispatcherTest)
+
 add_executable(FileReaderTest
     FileReaderTest.cpp
 )
