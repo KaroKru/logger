@@ -4,7 +4,7 @@
 #include "ILogEntry.hpp"
 #include <cstddef>
 #include <string>
-#include <vector>
+#include <queue>
 
 struct InformationData
 {
@@ -24,8 +24,8 @@ public:
     std::size_t getSize();
 
 private:
-    std::vector<InformationData> m_values;
-    std::size_t m_disptachCount = 0;
+    void dataInformation(const InformationData& value);
+    std::queue<InformationData> m_values;
 };
 
 #endif // Dispatcher

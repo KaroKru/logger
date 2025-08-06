@@ -8,8 +8,11 @@ TEST(DispatcherTest, checkDispatchInformation)
     LogEntry entry("Oct 03 03:00:00", "server", "sshd", "login");
 
     dispatcher.registerInformation(entry);
-    dispatcher.dispatchInformation();
 
     EXPECT_EQ(dispatcher.getSize(), 1);
+
+    dispatcher.dispatchInformation();
+
+    EXPECT_EQ(dispatcher.getSize(), 0);
 }
 

@@ -6,16 +6,21 @@
 void Dispatcher::registerInformation(const ILogEntry& log)
 {
     const InformationData data{log.getDate(), log.getServerName(), log.getName(), log.getMessage()};
-    m_values.push_back(data);
+    m_values.push(data);
 }
 
 void Dispatcher::dispatchInformation()
 {
-    for (std::size_t i = m_disptachCount; i < m_values.size(); i++)
+    while (!m_values.empty())
     {
-        std::cout << m_values[i].date << " " << m_values[i].serverName << " " << m_values[i].name << " " << m_values[i].message << std::endl;
+        dataInformation(m_values.front());
+        m_values.pop();
     }
-    m_disptachCount = m_values.size();
+}
+
+void Dispatcher::dataInformation(const InformationData& value)
+{
+    std::cout << value.date << " " << value.serverName << " " << value.name << " " << value.message << std::endl;
 }
 
 std::size_t Dispatcher::getSize()
