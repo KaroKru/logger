@@ -3,6 +3,12 @@
 #include <cstddef>
 #include <iostream>
 
+Dispatcher::Dispatcher(std::unique_ptr<Task> task)
+    : m_task(std::move(task))
+{
+
+}
+
 void Dispatcher::registerInformation(const ILogEntry& log)
 {
     const InformationData data{log.getDate(), log.getServerName(), log.getName(), log.getMessage()};
@@ -20,7 +26,11 @@ void Dispatcher::dispatchInformation()
 
 void Dispatcher::dataInformation(const InformationData& value)
 {
-    std::cout << value.date << " " << value.serverName << " " << value.name << " " << value.message << std::endl;
+    if (m_task)
+    {
+        LogEntry entry(value.date, value.serverName, value.name, value.message);
+        m_task->execute(entry);
+    }
 }
 
 std::size_t Dispatcher::getSize()

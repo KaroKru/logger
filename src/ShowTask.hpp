@@ -1,15 +1,12 @@
 #ifndef SHOWTASK_HPP
 #define SHOWTASK_HPP
 
-class ShowTask
+#include "Task.hpp"
+
+class ShowTask : public Task
 {
 public:
-    ShowTask();
-
-    void printTask();
-
-private:
-    
+    void execute(const ILogEntry& entry) override;
 };
 
 #endif // SHOWTASK_HPP

@@ -13,7 +13,8 @@ void open()
 {
     const std::string path = "../src/log.txt";
     const FileReader openFile(path);
-    Dispatcher dispatcher;
+    auto task = TaskFactory::createShowTask();
+    Dispatcher dispatcher(std::move(task));
     
     const std::vector<std::string> line = openFile.readFile();
 

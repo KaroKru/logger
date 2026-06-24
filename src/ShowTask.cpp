@@ -1,11 +1,11 @@
 #include "ShowTask.hpp"
+#include <iostream>
 
-ShowTask::ShowTask()
+void ShowTask::execute(const ILogEntry& entry)
 {
-
-}
-
-void ShowTask::printTask()
-{
-    
+    std::cout
+        << entry.getDate() << " "
+        << entry.getServerName() << " "
+        << entry.getName() << " "
+        << entry.getMessage() << std::endl;
 }
