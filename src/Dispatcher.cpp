@@ -2,6 +2,8 @@
 #include "ILogEntry.hpp"
 #include <cstddef>
 #include <iostream>
+#include "LogEntry.hpp"
+#include "Task.hpp"
 
 Dispatcher::Dispatcher(std::unique_ptr<Task> task)
     : m_task(std::move(task))

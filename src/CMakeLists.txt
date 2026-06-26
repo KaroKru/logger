@@ -32,11 +32,25 @@ target_include_directories(dispatcher PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+add_library(taskfactory STATIC
+    TaskFactory.cpp
+    ShowTask.cpp
+)
+
+target_include_directories(taskfactory PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_link_libraries(taskfactory PUBLIC
+    dispatcher
+    logentry
+)
+
 add_executable(log 
     main.cpp
 )
 
-target_link_libraries(log PRIVATE logparser dispatcher filereader)
+target_link_libraries(log PRIVATE logparser dispatcher filereader taskfactory)
 
 if(ENABLE_CODE_COVERAGE)
     target_compile_options(logentry PRIVATE --coverage)
@@ -44,6 +58,7 @@ if(ENABLE_CODE_COVERAGE)
     target_compile_options(filereader PRIVATE --coverage)
     target_compile_options(log PRIVATE --coverage)
     target_compile_options(dispatcher PRIVATE --coverage)
+    target_compile_options(taskfactory PRIVATE --coverage)
 
     target_link_libraries(log PRIVATE --coverage)
 
@@ -51,4 +66,5 @@ if(ENABLE_CODE_COVERAGE)
     target_link_libraries(logentry PRIVATE --coverage)
     target_link_libraries(dispatcher PRIVATE --coverage)
     target_link_libraries(filereader PRIVATE --coverage)
+    target_link_libraries(taskfactory PRIVATE --coverage)
 endif()

@@ -4,7 +4,13 @@
 #include <stdexcept>
 #include <memory>
 
-std::unique_ptr<Task> TaskFactory::createShowTask()
+std::unique_ptr<Task> TaskFactory::create(TaskType type) 
 {
-    return std::make_unique<ShowTask>();
+    switch (type)
+    {
+        case TaskType::Show:
+            return std::make_unique<ShowTask>();
+        default:
+            return nullptr;
+    }
 }

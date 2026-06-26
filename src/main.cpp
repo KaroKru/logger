@@ -1,11 +1,13 @@
 #include <iostream>
 #include "FileReader.hpp"
+#include "Task.hpp"
 #include "ILogEntry.hpp"
 #include "LogParser.hpp"
 #include <string>
 #include <vector>
 #include <memory>
 #include "Dispatcher.hpp"
+#include "TaskFactory.hpp"
 
 namespace
 {
@@ -13,7 +15,7 @@ void open()
 {
     const std::string path = "../src/log.txt";
     const FileReader openFile(path);
-    auto task = TaskFactory::createShowTask();
+    auto task = TaskFactory::create(TaskType::Show);
     Dispatcher dispatcher(std::move(task));
     
     const std::vector<std::string> line = openFile.readFile();
