@@ -2,8 +2,7 @@
 #define TASKFACTORY_HPP
 
 #include <memory>
-
-class Task;
+#include "Task.hpp"
 
 enum class TaskType
 {
