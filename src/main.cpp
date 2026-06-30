@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Task.hpp"
 #include "FileReader.hpp"
 #include <utility>
 #include "ILogEntry.hpp"
