@@ -20,13 +20,14 @@ void open()
     
     const std::vector<std::string> line = openFile.readFile();
 
-    for (const auto iValue : line)
+    for (const auto& iValue : line)
     {
         const std::unique_ptr<ILogEntry> entryData = LogParser::parseLine(iValue);
 
         dispatcher.registerInformation(*entryData);
-        dispatcher.dispatchInformation();
     }
+
+    dispatcher.dispatchInformation();
 }
 }
 

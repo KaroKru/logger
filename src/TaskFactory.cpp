@@ -1,7 +1,7 @@
 #include "TaskFactory.hpp"
 #include "Task.hpp"
 #include "ShowTask.hpp"
-#include <stdexcept>
+#include "SaveTask.hpp"
 #include <memory>
 
 std::unique_ptr<Task> TaskFactory::create(TaskType type) 
@@ -10,6 +10,8 @@ std::unique_ptr<Task> TaskFactory::create(TaskType type)
     {
         case TaskType::Show:
             return std::make_unique<ShowTask>();
+        case TaskType::Save:
+            return std::make_unique<SaveTask>();
         default:
             return nullptr;
     }

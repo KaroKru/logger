@@ -7,7 +7,9 @@ class Task;
 
 enum class TaskType
 {
-    Show
+    Show,
+    Delete,
+    Save
 };
 
 class TaskFactory

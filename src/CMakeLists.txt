@@ -35,6 +35,7 @@ target_include_directories(dispatcher PUBLIC
 add_library(taskfactory STATIC
     TaskFactory.cpp
     ShowTask.cpp
+    SaveTask.cpp
 )
 
 target_include_directories(taskfactory PUBLIC

@@ -35,7 +35,7 @@ void Dispatcher::dataInformation(const InformationData& value)
     }
 }
 
-std::size_t Dispatcher::getSize()
+std::size_t Dispatcher::getSize() const
 {
     return m_values.size();
 }

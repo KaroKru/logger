@@ -25,7 +25,7 @@ public:
 
     void dispatchInformation();
 
-    std::size_t getSize();
+    std::size_t getSize() const;
 
 private:
     void dataInformation(const InformationData& value);
