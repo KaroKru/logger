@@ -8,7 +8,6 @@ class Task;
 enum class TaskType
 {
     Show,
-    Delete,
     Save
 };
 
