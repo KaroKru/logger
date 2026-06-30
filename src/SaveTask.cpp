@@ -1,7 +1,6 @@
 #include "SaveTask.hpp"
-
 #include "ILogEntry.hpp"
-
+#include <ios>
 #include <fstream>
 #include <stdexcept>
 

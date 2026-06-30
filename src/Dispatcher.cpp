@@ -1,9 +1,10 @@
 #include "Dispatcher.hpp"
 #include "ILogEntry.hpp"
 #include <cstddef>
-#include <iostream>
 #include "LogEntry.hpp"
 #include "Task.hpp"
+#include <memory>
+#include <utility>
 
 Dispatcher::Dispatcher(std::unique_ptr<Task> task)
     : m_task(std::move(task))
@@ -30,7 +31,7 @@ void Dispatcher::dataInformation(const InformationData& value)
 {
     if (m_task)
     {
-        LogEntry entry(value.date, value.serverName, value.name, value.message);
+        const LogEntry entry(value.date, value.serverName, value.name, value.message);
         m_task->execute(entry);
     }
 }

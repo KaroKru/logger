@@ -1,4 +1,5 @@
 #include "ShowTask.hpp"
+#include "ILogEntry.hpp"
 #include <iostream>
 
 void ShowTask::execute(const ILogEntry& entry)
