@@ -1,4 +1,4 @@
-#include <iostream
+#include <iostream>
 #include "FileReader.hpp"
 #include <utility>
 #include "ILogEntry.hpp"
