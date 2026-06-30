@@ -1,5 +1,6 @@
 #include "TaskFactory.hpp"
 #include "ShowTask.hpp"
+#include "Task.hpp"
 #include "SaveTask.hpp"
 #include <memory>
 
