@@ -13,6 +13,12 @@ add_executable(LogParserTest
 target_link_libraries(LogParserTest PRIVATE logentry logparser gtest_main)
 add_test(NAME LogParserTest COMMAND LogParserTest)
 
+add_executable(TaskFactoryTest
+    TaskFactoryTest.cpp
+)
+target_link_libraries(TaskFactoryTest PRIVATE taskfactory gtest_main)
+add_test(NAME TaskFactoryTest COMMAND TaskFactoryTest)
+
 add_executable(DispatcherTest
     DispatcherTest.cpp
 )

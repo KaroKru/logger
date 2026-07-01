@@ -1,10 +1,22 @@
 #include <gtest/gtest.h>
 #include "Dispatcher.hpp"
 #include "LogEntry.hpp"
+#include "Task.hpp"
 
-TEST(DispatcherTest, checkDispatchInformation)
+class FakeTask : public Task {
+public:
+    void execute(const ILogEntry& entry) override {
+        wasExecuted = true;
+    }
+
+    bool wasExecuted = false;
+};
+
+TEST(DispatcherTest, checkDispatchInformation) 
 {
-    Dispatcher dispatcher;
+    auto task = std::make_unique<FakeTask>();
+    Dispatcher dispatcher(std::move(task));
+
     LogEntry entry("Oct 03 03:00:00", "server", "sshd", "login");
 
     dispatcher.registerInformation(entry);
@@ -15,4 +27,3 @@ TEST(DispatcherTest, checkDispatchInformation)
 
     EXPECT_EQ(dispatcher.getSize(), 0);
 }
-

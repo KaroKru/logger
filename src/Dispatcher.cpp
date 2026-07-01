@@ -1,7 +1,16 @@
 #include "Dispatcher.hpp"
 #include "ILogEntry.hpp"
 #include <cstddef>
-#include <iostream>
+#include "LogEntry.hpp"
+#include "Task.hpp"
+#include <memory>
+#include <utility>
+
+Dispatcher::Dispatcher(std::unique_ptr<Task> task)
+    : m_task(std::move(task))
+{
+
+}
 
 void Dispatcher::registerInformation(const ILogEntry& log)
 {
@@ -20,10 +29,14 @@ void Dispatcher::dispatchInformation()
 
 void Dispatcher::dataInformation(const InformationData& value)
 {
-    std::cout << value.date << " " << value.serverName << " " << value.name << " " << value.message << std::endl;
+    if (m_task)
+    {
+        const LogEntry entry(value.date, value.serverName, value.name, value.message);
+        m_task->execute(entry);
+    }
 }
 
-std::size_t Dispatcher::getSize()
+std::size_t Dispatcher::getSize() const
 {
     return m_values.size();
 }
